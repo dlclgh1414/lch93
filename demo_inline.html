@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <title>Virtual Keyboard</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+
+  <script type="text/javascript" src="vk_loader.js?vk_layout=KR%202%20Beolsik&vk_skin=air_large" ></script>
+  <style type="text/css">
+      html, body {
+          font: 12px Verdana, Arial, Tahoma;
+      }
+      table {
+          border-collapse: collapse;
+          padding: 0;
+          margin: 0;
+      }
+      td {
+          margin: 0;
+          text-align: left;
+          vertical-align: top;
+      }
+      td.layouts {
+          font-size: 12px;
+      }
+      td.layouts a {
+          white-space: nowrap;
+          font-size: 11px;
+          font-weight: bold;
+          color: #555;
+      }
+      td.layouts a:hover {
+          color: #000;
+      }
+      label {
+          white-space: nowrap;
+      }
+
+      #skins a {
+          position: relative;
+      }
+      #skins a img {
+          border: 0;
+          display: none;
+          left: 0%;
+          position: absolute;
+          top: 100%;
+      }
+      #skins a:hover {
+          z-index: 2;
+      }
+      #skins a:hover img {
+          display: block;
+      }
+
+      h1 {
+          font-size: 150%;
+      }
+      h2 {
+          font-size: 130%;
+          padding: 0 6px;
+      }
+      table form input {
+          width: 247px;
+      }
+      table form textarea {
+          width: 500px;
+      }
+
+  </style>
+ </head>
+ <body><!-- test -->
+
+  <table border=1>
+   <tr>
+    <td rowspan="3" style="width: 40%">
+     <form action="no.cgi" method="get">
+      <div>
+       <table>
+        <tr>
+         <td colspan="2">
+         	<input type="text" id="text">
+         </td>
+        </tr>
+       </table>
+       <div id="td"></div>
+      </div>
+     </form>
+    </td>
+   </tr>
+
+  </table>
+     <script type="text/javascript">
+         /**
+          *  Collects all selected filters and changes available layouts
+          */
+         function setFilter() {
+             var filter = []
+                ,cbxs = document.getElementsByTagName('input');
+             for (var i=0,cL=cbxs.length; i<cL; i++) {
+                 if (cbxs[i].checked)
+                     filter.push(cbxs[i].value);
+             }
+             VirtualKeyboard.setVisibleLayoutCodes(filter);
+         }
+
+
+         EM.addEventListener(window,'domload',function(){
+             VirtualKeyboard.toggle('text','td');
+         });
+
+     </script>  
+ </body>
+</html>
